@@ -6,6 +6,8 @@ use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Schema;
 use App\Enums\ProductStatusEnum;
+use Filament\Forms\Components\ModalTableSelect;
+use App\Filament\Tables\CategoriesTable;
 
 class ProductForm
 {
@@ -23,8 +25,11 @@ class ProductForm
                 Select::make('status')
                     ->options(ProductStatusEnum::class)
                     ->required(),
-                Select::make('category_id')
-                    ->relationship('category', 'name'),
+                ModalTableSelect::make('category_id')
+                    ->relationship('category', 'name')
+                    ->tableConfiguration(CategoriesTable::class),
+                // Select::make('category_id')
+                //     ->relationship('category', 'name'),
                 // TextEditor::make('description'),
             ]);
     }
