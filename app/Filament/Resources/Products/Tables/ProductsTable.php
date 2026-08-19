@@ -21,7 +21,8 @@ class ProductsTable
                 TextColumn::make('price')
                     ->money('USD', 100)
                     ->sortable(),
-                TextColumn::make('status')
+                TextColumn::make('status'),
+                TextColumn::make('category.name')
             ])
             ->defaultSort('name')
             ->filters([

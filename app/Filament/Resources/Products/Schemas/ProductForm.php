@@ -23,6 +23,8 @@ class ProductForm
                 Select::make('status')
                     ->options(ProductStatusEnum::class)
                     ->required(),
+                Select::make('category_id')
+                    ->relationship('category', 'name'),
                 // TextEditor::make('description'),
             ]);
     }
